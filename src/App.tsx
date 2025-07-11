@@ -1,13 +1,18 @@
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
-import Home from "./pages/Home";
+import React from 'react';
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
+import VideoSection from './components/VideoSection';
+import ShortsSection from './components/ShortsSection';
 
-export default function App() {
+function App() {
   return (
     <>
       <Navbar />
       <Sidebar />
-      <Home />
+      <VideoSection />
+      <ShortsSection />
     </>
   );
 }
+
+export default App;

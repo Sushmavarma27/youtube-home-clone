@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchVideos, fetchShorts } from "../services/youtubeAPI";
-import VideoGrid from "../components/VideoGrid";
+import VideoGrid from "../components/VideoSection";
 import ShortsSection from "../components/ShortsSection";
 import { Box, Container } from "@mui/material";
 

@@ -1,27 +1,29 @@
-import { Box, Typography, Card, CardMedia } from "@mui/material";
+import React from 'react';
+import { Box, Typography, Grid, Card, CardMedia } from '@mui/material';
 
-interface Props {
-  shorts: any[];
-}
+const ShortsSection = () => {
+  const shorts = Array.from({ length: 6 }, (_, i) => ({
+    title: `Short #${i + 1}`,
+    thumbnail: `https://picsum.photos/200/300?random=${i + 1}`
+  }));
 
-export default function ShortsSection({ shorts }: Props) {
   return (
-    <Box sx={{ mt: 4 }}>
-      <Typography variant="h6" sx={{ mb: 2 }}>
+    <Box sx={{ mt: 5, ml: 25 }}>
+      <Typography variant="h6" gutterBottom>
         Shorts
       </Typography>
-      <Box sx={{ display: "flex", overflowX: "scroll", gap: 2 }}>
-        {shorts.map((short) => (
-          <Card sx={{ minWidth: 200 }} key={short.id.videoId}>
-            <CardMedia
-              component="img"
-              height="240"
-              image={short.snippet.thumbnails.high.url}
-              alt={short.snippet.title}
-            />
-          </Card>
+      <Grid container spacing={2}>
+        {shorts.map((short, idx) => (
+          <Grid item xs={6} sm={4} md={2} key={idx}>
+            <Card>
+              <CardMedia component="img" image={short.thumbnail} alt={short.title} />
+              <Typography sx={{ p: 1 }} variant="body2">{short.title}</Typography>
+            </Card>
+          </Grid>
         ))}
-      </Box>
+      </Grid>
     </Box>
   );
-}
+};
+
+export default ShortsSection;
